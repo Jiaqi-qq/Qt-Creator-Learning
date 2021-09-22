@@ -134,7 +134,6 @@ public:
     QWidget *tab_9;
     QVBoxLayout *verticalLayout_3;
     QFormLayout *formLayout_2;
-    QLabel *nLabel_2;
     QLineEdit *nLineEdit_2;
     QLabel *mLabel_2;
     QLineEdit *mLineEdit_2;
@@ -142,6 +141,7 @@ public:
     QComboBox *sComboBox_2;
     QLabel *aLabel_2;
     QSpinBox *aSpinBox_2;
+    QLabel *nLabel_2;
     QSpacerItem *horizontalSpacer;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout;
@@ -484,11 +484,6 @@ public:
         formLayout_2->setFieldGrowthPolicy(QFormLayout::ExpandingFieldsGrow);
         formLayout_2->setRowWrapPolicy(QFormLayout::DontWrapRows);
         formLayout_2->setLabelAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        nLabel_2 = new QLabel(tab_9);
-        nLabel_2->setObjectName(QString::fromUtf8("nLabel_2"));
-
-        formLayout_2->setWidget(0, QFormLayout::LabelRole, nLabel_2);
-
         nLineEdit_2 = new QLineEdit(tab_9);
         nLineEdit_2->setObjectName(QString::fromUtf8("nLineEdit_2"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
@@ -536,6 +531,11 @@ public:
 
         formLayout_2->setWidget(3, QFormLayout::FieldRole, aSpinBox_2);
 
+        nLabel_2 = new QLabel(tab_9);
+        nLabel_2->setObjectName(QString::fromUtf8("nLabel_2"));
+
+        formLayout_2->setWidget(0, QFormLayout::LabelRole, nLabel_2);
+
 
         verticalLayout_3->addLayout(formLayout_2);
 
@@ -578,16 +578,16 @@ public:
         mLabel->setBuddy(mLineEdit);
         sLabel->setBuddy(sComboBox);
         aLabel->setBuddy(aSpinBox);
-        nLabel_2->setBuddy(nLineEdit);
-        mLabel_2->setBuddy(mLineEdit);
-        sLabel_2->setBuddy(sComboBox);
-        aLabel_2->setBuddy(aSpinBox);
+        mLabel_2->setBuddy(mLineEdit_2);
+        sLabel_2->setBuddy(sComboBox_2);
+        aLabel_2->setBuddy(aSpinBox_2);
+        nLabel_2->setBuddy(nLineEdit_2);
 #endif // QT_CONFIG(shortcut)
 
         retranslateUi(MyDialog);
         QObject::connect(pushButton_2, SIGNAL(clicked()), MyDialog, SLOT(close()));
-        QObject::connect(listWidget, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
         QObject::connect(dial, SIGNAL(valueChanged(int)), horizontalSlider, SLOT(setValue(int)));
+        QObject::connect(listWidget, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
         QObject::connect(dial, SIGNAL(sliderMoved(int)), verticalSlider, SLOT(setValue(int)));
         QObject::connect(fontComboBox, SIGNAL(currentTextChanged(QString)), textEdit, SLOT(setFontFamily(QString)));
 
@@ -669,13 +669,13 @@ public:
 
         aLabel->setText(QCoreApplication::translate("MyDialog", "\345\271\264\351\276\204(&A)", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_8), QCoreApplication::translate("MyDialog", "\347\252\227\344\275\223\345\270\203\345\261\200\347\256\241\347\220\206\345\231\250", nullptr));
-        nLabel_2->setText(QCoreApplication::translate("MyDialog", "\346\200\247\345\220\215(&N):", nullptr));
         mLabel_2->setText(QCoreApplication::translate("MyDialog", "\351\202\256\347\256\261\345\234\260\345\235\200(&M)", nullptr));
         sLabel_2->setText(QCoreApplication::translate("MyDialog", "\346\200\247\345\210\253(&S)", nullptr));
         sComboBox_2->setItemText(0, QCoreApplication::translate("MyDialog", "\347\224\267", nullptr));
         sComboBox_2->setItemText(1, QCoreApplication::translate("MyDialog", "\345\245\263", nullptr));
 
         aLabel_2->setText(QCoreApplication::translate("MyDialog", "\345\271\264\351\276\204(&A)", nullptr));
+        nLabel_2->setText(QCoreApplication::translate("MyDialog", "\346\200\247\345\220\215(&N)", nullptr));
         pushButton_10->setText(QCoreApplication::translate("MyDialog", "\346\230\276\347\244\272\345\217\257\346\213\223\345\261\225\347\252\227\345\217\243", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("MyDialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
